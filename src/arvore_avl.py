@@ -1,6 +1,9 @@
 # Marcos Vinicius Brito de Araujo - 202404940009
 # Maurício Aires Pinheiro - 202404940003
 
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
+
 class NodeAVL:
     def __init__(self, chave):
         self.chave = chave

@@ -1,17 +1,20 @@
 # Marcos Vinicius Brito de Araujo - 202404940009
 # Maurício Aires Pinheiro - 202404940003
 
-class NodeRubroNegra:
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
+
+class NodeRN:
     def __init__(self, chave):
         self.chave = chave
         self.esquerda = None
         self.direita = None
         self.pai = None
-        self.cor = 1 # 1 = Vermelho, 0 = Preto
+        self.cor = 1 #1 = Vermelho, 0 = Preto
 
 class ArvoreRubroNegra:
     def __init__(self):
-        self.NIL = NodeRubroNegra(None)
+        self.NIL = NodeRN(None)
         self.NIL.cor = 0
         self.raiz = self.NIL
 
@@ -54,7 +57,7 @@ class ArvoreRubroNegra:
         node_desbalanceado.pai = pivo
 
     def inserir(self, chave):
-        novo_node = NodeRubroNegra(chave)
+        novo_node = NodeRN(chave)
         novo_node.esquerda = self.NIL
         novo_node.direita = self.NIL
         
@@ -160,7 +163,7 @@ class ArvoreRubroNegra:
             self._imprimir_arvore(node.direita, prefixo_novo, False)
         
         
-        if node.cor == 1:
+        if node.cor == 0:
             texto = f"P {node.chave}"
         else:
             texto = f"V {node.chave}"
@@ -173,7 +176,6 @@ class ArvoreRubroNegra:
 
 arvore_rubro_negra = ArvoreRubroNegra()
 valores = [50, 25, 75, 15, 35, 60, 120, 10, 68, 90, 125, 83, 100, 25, 3, 7, 12, 84, 302, 1, 123, 101]
-
 for valor in valores:
     arvore_rubro_negra.inserir(valor)
 
@@ -181,4 +183,5 @@ chave = 60
 print(f"Pesquisando chave {chave}:")
 arvore_rubro_negra.pesquisar(chave)
 
+arvore_rubro_negra.pesquisar(60)
 arvore_rubro_negra.mostrar()
