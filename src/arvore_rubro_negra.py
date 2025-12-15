@@ -68,7 +68,9 @@ class ArvoreRubroNegra:
             pai_aux = atual
             if novo_node.chave < atual.chave:
                 atual = atual.esquerda
-
+            elif novo_node.chave == atual.chave:
+                print(f"Chave {chave} já existe na árvore.")
+                return
             else:
                 atual = atual.direita
 
@@ -175,7 +177,7 @@ class ArvoreRubroNegra:
             self._imprimir_arvore(node.esquerda, prefixo_novo, True)
 
 arvore_rubro_negra = ArvoreRubroNegra()
-valores = [50, 25, 75, 15, 35, 60, 120, 10, 68, 90, 125, 83, 100, 25, 3, 7, 12, 84, 302, 1, 123, 101]
+valores = [50, 25, 75, 15, 35, 60, 120, 10, 68, 90, 125, 83, 100, 25, 3, 7, 12, 84, 302, 1, 123, 101, 1, 7, 50]
 for valor in valores:
     arvore_rubro_negra.inserir(valor)
 
